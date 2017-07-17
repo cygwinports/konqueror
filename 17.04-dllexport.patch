@@ -1,0 +1,11 @@
+--- origsrc/konqueror-17.04.3/src/konqprivate_export.h	2017-06-30 22:42:52.000000000 -0500
++++ src/konqueror-17.04.3/src/konqprivate_export.h	2017-07-16 14:30:11.687540400 -0500
+@@ -25,7 +25,7 @@
+ /* Classes from the Konqueror application, which are exported only for unit tests */
+ #ifdef BUILD_TESTING
+ # ifndef KONQ_TESTS_EXPORT
+-#  define KONQ_TESTS_EXPORT KONQUERORPRIVATE_EXPORT
++#  define KONQ_TESTS_EXPORT Q_DECL_EXPORT
+ # endif
+ #else /* not compiling tests */
+ # define KONQ_TESTS_EXPORT

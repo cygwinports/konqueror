@@ -1,0 +1,77 @@
+inherit kf5
+
+NAME="konqueror"
+VERSION=17.04.3
+RELEASE=1
+CATEGORY="Web"
+SUMMARY="KDE web and file browser"
+DESCRIPTION="Konqueror is an advanced file manager, providing file management
+functions ranging from simple cut/copy and paste operations to advanced local
+and remote network file browsing."
+
+PATCH_URI="
+	17.04-webengine-optional.patch
+	17.04-dllexport.patch
+"
+
+DISTCLEANFILES="po/*/webenginepart.po"
+
+PKG_NAMES="${NAME} libKF5Konq6 libKF5Konq-devel"
+# optional parts: ark dragon gwenview kdesvn kompare konsole okteta okular
+konqueror_REQUIRES="dolphin5-part kdialog keditbookmarks kf5-kio-extras kwebkitpart libKF5TextEditor5"
+konqueror_CONTENTS="
+	etc/postinstall/konqueror.sh
+	etc/xdg/autostart/konqy_preload.desktop
+	etc/xdg/translaterc
+	usr/bin/cygkdeinit5_kfmclient.dll
+	usr/bin/cygkdeinit5_konqueror.dll
+	usr/bin/cygkonquerorprivate-5.dll
+	usr/bin/fsview.exe
+	usr/bin/kfmclient.exe
+	usr/bin/konqueror.exe
+	usr/lib/qt5/plugins/*.dll
+	usr/share/akregator/
+	usr/share/applications/kfmclient.desktop
+	usr/share/applications/kfmclient_dir.desktop
+	usr/share/applications/kfmclient_html.desktop
+	usr/share/applications/kfmclient_war.desktop
+	usr/share/applications/konqbrowser.desktop
+	usr/share/config.kcfg/konqueror.kcfg
+	usr/share/config.kcfg/validators.kcfg
+	usr/share/dbus-1/interfaces/org.kde.Konqueror.Main.xml
+	usr/share/dbus-1/interfaces/org.kde.Konqueror.MainWindow.xml
+	usr/share/doc/HTML/*/kcontrol5/*
+	usr/share/doc/HTML/*/konqueror/
+	usr/share/doc/${NAME}
+	usr/share/dolphinpart/kpartplugins/
+	usr/share/domtreeviewer/
+	usr/share/fsview/
+	usr/share/icons/hicolor/*/actions/*.*
+	usr/share/icons/hicolor/*/apps/fsview.*
+	usr/share/icons/hicolor/*/apps/konqueror.*
+	usr/share/icons/oxygen/*/actions/*.*
+	usr/share/kcmcss/template.css
+	usr/share/kcontrol/pics/onlyone.png
+	usr/share/kcontrol/pics/overlapping.png
+	usr/share/kf5/kbookmark/directory_bookmarkbar.desktop
+	usr/share/khtml/kpartplugins/
+	usr/share/konqueror/
+	usr/share/kservices5/*.desktop
+	usr/share/kservicetypes5/konqaboutpage.desktop
+	usr/share/kwebkitpart/kpartplugins/
+	usr/share/kxmlgui5/konqueror/konqueror.rc
+	usr/share/locale/*/LC_MESSAGES/*.mo
+	usr/share/metainfo/org.kde.konqueror.appdata.xml
+"
+libKF5Konq6_CATEGORY="Libs"
+libKF5Konq6_CONTENTS="
+	usr/bin/cygKF5Konq-6.dll
+"
+libKF5Konq_devel_CATEGORY="Libs"
+libKF5Konq_devel_CONTENTS="
+	usr/include/KF5/konq_*
+	usr/include/KF5/libkonq_export.h
+	usr/lib/cmake/KF5Konq/
+	usr/lib/libKF5Konq.dll.a
+"
+PKG_IGNORE="usr/lib/libkonquerorprivate.dll.a"
