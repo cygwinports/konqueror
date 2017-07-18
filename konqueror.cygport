@@ -17,6 +17,7 @@ PATCH_URI="
 DISTCLEANFILES="po/*/webenginepart.po"
 
 PKG_NAMES="${NAME} libKF5Konq6 libKF5Konq-devel"
+konqueror_OBSOLETES="konqueror-devel" # from kde-baseapps
 # optional parts: ark dragon gwenview kdesvn kompare konsole okteta okular
 konqueror_REQUIRES="dolphin5-part kdialog keditbookmarks kf5-kio-extras kwebkitpart libKF5TextEditor5"
 konqueror_CONTENTS="
