@@ -1,7 +1,7 @@
 inherit kf5
 
 NAME="konqueror"
-VERSION=17.04.3
+VERSION=17.08.3
 RELEASE=1
 CATEGORY="Web"
 SUMMARY="KDE web and file browser"
@@ -23,6 +23,7 @@ konqueror_REQUIRES="dolphin5-part kdialog keditbookmarks kf5-kio-extras kwebkitp
 konqueror_CONTENTS="
 	etc/postinstall/konqueror.sh
 	etc/xdg/autostart/konqy_preload.desktop
+	etc/xdg/konqueror.categories
 	etc/xdg/translaterc
 	usr/bin/cygkdeinit5_kfmclient.dll
 	usr/bin/cygkdeinit5_konqueror.dll
@@ -60,7 +61,6 @@ konqueror_CONTENTS="
 	usr/share/kservices5/*.desktop
 	usr/share/kservicetypes5/konqaboutpage.desktop
 	usr/share/kwebkitpart/kpartplugins/
-	usr/share/kxmlgui5/konqueror/konqueror.rc
 	usr/share/locale/*/LC_MESSAGES/*.mo
 	usr/share/metainfo/org.kde.konqueror.appdata.xml
 "
@@ -69,6 +69,7 @@ libKF5Konq6_CONTENTS="
 	usr/bin/cygKF5Konq-6.dll
 "
 libKF5Konq_devel_CATEGORY="Libs"
+libKF5Konq_devel_REQUIRES="libKF5Config-devel libKF5CoreAddons-devel libKF5KIO-devel libKF5Parts-devel libKF5Service-devel libKF5XmlGui-devel"
 libKF5Konq_devel_CONTENTS="
 	usr/include/KF5/konq_*
 	usr/include/KF5/libkonq_export.h
